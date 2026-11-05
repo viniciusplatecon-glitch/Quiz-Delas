@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#5B2D9E">
+<title>Proteção para Elas – Informação que Protege</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2A1B5E;--v:#5B2D9E;--v2:#7B4FC9;--lil:#E9DDFB;--mist:#F7F2FE;--rose:#F4B6D8;--ok:#2B8A68;--okbg:#E4F5EC;
+--script:"Kaushan Script","Brush Script MT",cursive;--sans:"Poppins",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{font-size:clamp(16px,2.4vmin,26px);-webkit-tap-highlight-color:transparent}
+body{height:100vh;height:100dvh;font-family:var(--sans);color:var(--ink);overflow:hidden;
+background:radial-gradient(50rem 30rem at 90% 0,#f6c9e3 0,transparent 60%),radial-gradient(50rem 30rem at 0 100%,#cdb7f5 0,transparent 60%),#f1eafc;
+padding:max(.7rem,env(safe-area-inset-top)) max(.7rem,env(safe-area-inset-right)) max(.7rem,env(safe-area-inset-bottom)) max(.7rem,env(safe-area-inset-left));
+-webkit-user-select:none;user-select:none}
+.panel{height:100%;background:#fff;border-radius:1.4rem;box-shadow:0 1.2rem 3rem -1rem rgba(60,30,130,.35);overflow:hidden;position:relative;display:flex;flex-direction:column}
+.scr{flex:1;min-height:0;overflow:auto;padding:1.3rem 1.8rem;animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+[hidden]{display:none!important}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}}
+@keyframes sway{from{transform:rotate(-3.5deg)}to{transform:rotate(3.5deg)}}
+@keyframes breathe{to{transform:translateY(-3px)}}
+@keyframes floaty{50%{transform:translateY(-8px)}}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(91,45,158,.45)}80%,100%{box-shadow:0 0 0 .9rem rgba(91,45,158,0)}}
+button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulation}
+:focus-visible{outline:3px solid #9b86ea;outline-offset:3px}
+.script{font-family:var(--script);font-weight:400}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--v);color:#fff;font-weight:600;font-size:1rem;padding:.85rem 1.5rem;border-radius:999px;min-height:3.2rem;transition:background .2s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn.out{background:#fff;color:var(--v);box-shadow:inset 0 0 0 2px var(--v)}
+.btn.sm{font-size:.85rem;padding:.55rem 1.1rem;min-height:2.6rem}
+.row{display:flex;gap:.8rem;flex-wrap:wrap}
+.top{display:flex;align-items:center;gap:1rem;background:linear-gradient(90deg,var(--v),var(--v2));color:#fff;padding:.7rem 1.4rem;font-weight:600}
+.top .back{background:rgba(255,255,255,.18);color:#fff;border-radius:999px;padding:.4rem 1rem;font-size:.85rem;min-height:2.4rem}
+.top .sp{flex:1}
+.top small{font-weight:500;opacity:.9}
+.brand{font-weight:700;font-size:.8rem;letter-spacing:.06em;color:var(--v);opacity:.8}
+
+/* boas-vindas */
+.home{display:grid;grid-template-columns:1fr 1.1fr;gap:1.5rem;align-items:center;height:100%}
+.home .art{width:100%;max-height:78vh;display:block}
+.home h1{font-size:clamp(2.2rem,7vmin,3.8rem);line-height:1.05;margin:.3rem 0 .8rem;font-weight:700;color:var(--v)}
+.home p{font-size:1.1rem;line-height:1.5;margin-bottom:.8rem}
+.note{background:var(--mist);border-radius:1rem;padding:.8rem 1rem;font-size:.95rem;margin-bottom:1.2rem}
+.home .btn{font-size:1.2rem;padding:1rem 2rem;animation:ring 2.4s ease-out 1.5s 3}
+.beam{transform-origin:214px 92px;animation:sway 5s ease-in-out infinite alternate}
+.woman{animation:breathe 4s ease-in-out infinite alternate}
+.shield{position:absolute;width:4.2rem;right:6%;bottom:12%;animation:floaty 5s ease-in-out infinite}
+
+/* menu */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.6rem}
+.card{display:flex;gap:1rem;align-items:center;text-align:left;padding:1rem 1.2rem;border-radius:1.2rem;color:#2d1a4a;position:relative;animation:rise .5s both;min-height:6.5rem}
+.card:active{transform:scale(.98)}
+.card .ic{flex:none;width:4rem;height:4rem;border-radius:50%;background:rgba(255,255,255,.65);display:grid;place-items:center;color:var(--v)}
+.ic svg{width:2.4rem;height:2.4rem}
+.card h3{font-size:1.1rem;line-height:1.2}
+.card p{font-size:.82rem;margin:.25rem 0 .5rem;opacity:.85}
+.pill{display:inline-block;background:var(--v);color:#fff;font-weight:600;font-size:.8rem;padding:.3rem .9rem;border-radius:999px}
+.done{position:absolute;top:.6rem;right:.8rem;font-size:.75rem;font-weight:600;background:#fff;border-radius:999px;padding:.15rem .6rem;color:var(--ok)}
+h2.t{font-size:1.4rem;font-weight:700;text-align:center;margin-top:.2rem}
+
+/* pergunta */
+.dots{display:flex;gap:.35rem;align-items:center}
+.dots i{width:.7rem;height:.7rem;border-radius:50%;background:rgba(255,255,255,.35)}
+.dots i.on{background:#fff}
+.qgrid{display:grid;grid-template-columns:.8fr 1.6fr;gap:1.6rem;align-items:center;min-height:100%}
+.bub{aspect-ratio:1;max-height:62vh;margin:auto;width:100%;max-width:17rem;border-radius:50%;display:grid;place-items:center;color:var(--v);animation:floaty 6s ease-in-out infinite}
+.bub svg{width:52%;height:52%}
+.q{font-size:clamp(1.15rem,3.2vmin,1.6rem);font-weight:600;line-height:1.35;margin-bottom:1rem;color:var(--v)}
+.opt{display:flex;gap:.9rem;align-items:center;width:100%;text-align:left;background:var(--mist);border-radius:1rem;padding:.75rem 1rem;margin-bottom:.6rem;font-size:1rem;line-height:1.35;font-weight:500;box-shadow:inset 0 0 0 2px #e3d7f8;min-height:3.4rem;animation:rise .45s both}
+.opt:active{background:var(--lil)}
+.opt b{flex:none;width:2rem;height:2rem;border-radius:50%;background:#fff;color:var(--v);display:grid;place-items:center;font-size:.9rem}
+
+/* resposta */
+.fbh{display:flex;align-items:center;gap:.8rem;margin-bottom:.3rem}
+.fbh .badge{width:2.8rem;height:2.8rem;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.5rem;font-weight:700;animation:pop .5s}
+.fbh h2{font-size:1.9rem;color:var(--v)}
+.ans{background:var(--okbg);border-radius:.9rem;padding:.55rem .9rem;font-size:.95rem;font-weight:600;color:#1f6b50;margin-bottom:.7rem}
+.agrid{display:grid;grid-template-columns:1fr minmax(0,.4fr);gap:1.2rem}
+.blk{border-radius:1rem;padding:.7rem 1rem;margin-bottom:.6rem;font-size:.92rem;line-height:1.45}
+.blk h4{display:inline-block;font-size:.8rem;background:rgba(255,255,255,.75);border-radius:999px;padding:.1rem .7rem;margin-bottom:.3rem}
+.b1{background:#EADFFB}.b2{background:#FDE5D2}.b3{background:#D6F1EF}
+.lei{font-size:.78rem;opacity:.8;margin-top:.3rem}
+.side{display:flex;align-items:center;justify-content:center;text-align:center}
+.side p{font-family:var(--script);font-size:clamp(1.5rem,5vmin,2.4rem);line-height:1.25;color:var(--v);transform:rotate(-6deg)}
+.foot{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.5rem}
+.opt.right{background:var(--okbg);box-shadow:inset 0 0 0 2px var(--ok);animation:pop .5s}
+.opt.pick{background:#FDEDE0;box-shadow:inset 0 0 0 2px #E39A5C;animation:shake .45s}
+
+/* final e ajuda */
+.mid{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:100%;gap:.8rem}
+.mid svg{width:7rem}
+.mid h2{font-size:clamp(1.5rem,5vmin,2.4rem);color:var(--v);max-width:20ch}
+.mid p{max-width:46ch;line-height:1.5}
+.help{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.8rem 0}
+.hc{display:flex;gap:.9rem;align-items:center;background:var(--mist);border-radius:1rem;padding:.8rem 1rem}
+.hc .n{flex:none;min-width:3.6rem;height:3.6rem;border-radius:1rem;background:var(--v);color:#fff;font-weight:700;font-size:1.3rem;display:grid;place-items:center;padding:0 .4rem}
+.hc b{display:block}.hc span{font-size:.85rem;opacity:.85}
+.idle{position:absolute;inset:0;background:rgba(42,27,94,.72);display:grid;place-items:center;z-index:9}
+.idle[hidden]{display:none}
+.idle div{background:#fff;border-radius:1.4rem;padding:1.6rem 2rem;text-align:center}
+.idle h3{font-size:1.5rem;margin-bottom:1rem}
+
+@media (max-aspect-ratio:1/1),(max-width:760px){
+ .home,.qgrid,.agrid,.cards,.help{grid-template-columns:1fr}
+ .home .art{max-height:34vh}.bub{max-width:8rem}.side{display:none}.shield{display:none}
+ .scr{padding:1rem 1.1rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="panel">
+
+<section class="scr" id="home">
+ <div class="home">
+  <div style="position:relative"><svg class="art" role="img" aria-label="Ilustração de uma mulher ao lado da balança da justiça" viewBox="0 0 272 230" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="132" cy="122" r="100" fill="#EFE6FB"/>
+  <circle cx="132" cy="122" r="100" fill="none" stroke="#F4B6D8" stroke-width="1" stroke-dasharray="2 5"/>
+  <!-- folhas -->
+  <g fill="#7B4FC9" opacity=".85">
+    <path d="M30 196C22 176 30 160 46 154 54 172 48 188 30 196Z"/>
+    <path d="M30 196C16 188 12 172 20 160 34 166 38 182 30 196Z" fill="#F4B6D8"/>
+    <path d="M30 196C40 200 50 200 60 194 52 184 38 184 30 196Z" fill="#2A1B5E"/>
+  </g>
+  <!-- balança -->
+  <path d="M214 84V198" stroke="#2A1B5E" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="214" cy="80" r="5" fill="#F4B6D8"/>
+  <path d="M198 200h32l-5-12h-22z" fill="#2A1B5E"/>
+  <g class="beam">
+    <g stroke="#2A1B5E" stroke-linecap="round" fill="none">
+      <path d="M184 92H244" stroke-width="3"/>
+      <path d="M184 92 170 138M184 92 198 138M244 92 230 138M244 92 258 138" stroke-width="1.4"/>
+    </g>
+    <path d="M166 138h36a18 14 0 0 1-36 0zM226 138h36a18 14 0 0 1-36 0z" fill="#F4B6D8"/>
+  </g>
+  <!-- mulher (perfil) -->
+  <g class="woman"><g transform="translate(0 -14)"><path d="M62 244C62 192 92 170 124 166L144 166C176 172 198 196 202 244Z" fill="#2A1B5E"/>
+  <path d="M124 166 146 168 152 210 132 192Z" fill="#FFFFFF"/>
+  <path d="M146 168 170 210 152 210Z" fill="#7B4FC9"/></g>
+  <path d="M121 118H142L146 152 124 152Z" fill="#D9A183"/>
+  <path d="M110 52C134 40 154 52 156 72 157 77 160 81 167 89 168 92 164 94 161 94 162 97 163 98 161 100 163 102 162 104 160 106 160 109 161 112 157 117 152 123 146 125 138 125L110 120Z" fill="#E8B99D"/>
+  <path d="M104 118C92 100 96 60 120 46 140 38 160 48 160 68 150 56 138 56 128 64 122 74 128 100 126 122 120 126 110 124 104 118Z" fill="#1C1625"/>
+  <circle cx="104" cy="46" r="17" fill="#1C1625"/>
+  <path d="M143 71q6-4 12-1M146 78q4-3 8 0" stroke="#1C1625" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <path d="M159 101q3 1 1.5 4" stroke="#B5566B" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="132" cy="100" rx="4.5" ry="7" fill="#D9A183"/>
+  <circle cx="132" cy="109" r="2.6" fill="#F4B6D8"/></g>
+</svg><svg class="shield" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 3 44 10v18c0 12-8 20-20 25C12 48 4 40 4 28V10z" fill="#7B4FC9"/><circle cx="24" cy="22" r="7" fill="none" stroke="#fff" stroke-width="3"/><path d="M24 29v13M18 36h12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>
+  <div>
+   <div class="script" style="font-size:1.6rem;color:var(--v2)">Projeto Proteção para Elas</div>
+   <h1>Seja<br>bem-vinda!</h1>
+   <p>Conhecer seus direitos é o primeiro passo para reconhecer a violência.</p>
+   <p>Escolha um tema, responda perguntas do cotidiano e descubra como agir.</p>
+   <div class="note"><b>Aqui não é prova.</b> Não há nota, e você não precisa contar nada pessoal.</div>
+   <button class="btn" id="go">Vamos começar →</button>
+   <div class="brand" style="margin-top:1rem">UNIFACEMP · CENTRO UNIVERSITÁRIO</div>
+  </div>
+ </div>
+</section>
+
+<section class="scr" id="menu" hidden>
+ <h2 class="t">Eixo Criminal – Informação que Protege</h2>
+ <p style="text-align:center;margin:.2rem 0 .4rem;font-weight:500">Escolha um tema:</p>
+ <div class="cards" id="cards"></div>
+ <div class="foot" style="justify-content:center;margin-top:1rem">
+  <button class="btn out sm" data-help>📞 Precisa de ajuda?</button>
+  <button class="btn out sm" id="tohome">← Início</button>
+ </div>
+</section>
+
+<section id="quiz" hidden style="display:flex;flex-direction:column;flex:1;min-height:0">
+ <div class="top"><button class="back" id="qback">← Temas</button><span id="qtit"></span><span class="sp"></span><small id="qcount"></small><div class="dots" id="dots"></div></div>
+ <div class="scr" style="flex:1;animation:none">
+  <div class="qgrid"><div class="bub" id="bub"></div><div><div class="q" id="qtxt"></div><div id="opts"></div></div></div>
+ </div>
+</section>
+
+<section id="answer" hidden style="display:flex;flex-direction:column;flex:1;min-height:0">
+ <div class="top"><span id="atit"></span><span class="sp"></span><small id="acount"></small></div>
+ <div class="scr" style="flex:1;animation:none" id="abody"></div>
+</section>
+
+<section class="scr" id="end" hidden>
+ <div class="mid">
+  <svg viewBox="0 0 48 56" aria-hidden="true"><path d="M24 3 44 10v18c0 12-8 20-20 25C12 48 4 40 4 28V10z" fill="#7B4FC9"/><circle cx="24" cy="22" r="7" fill="none" stroke="#fff" stroke-width="3"/><path d="M24 29v13M18 36h12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+  <h2>Você conheceu um pouco mais sobre seus direitos!</h2>
+  <p>A informação é uma ferramenta importante para reconhecer a violência e buscar proteção. Deseja conhecer outro tema?</p>
+  <div class="row" style="justify-content:center"><button class="btn" id="e1">Voltar aos temas</button><button class="btn out" data-help>Ver canais de ajuda</button></div>
+  <div class="script" style="font-size:1.6rem;color:var(--v2)">Informação também é proteção!</div>
+ </div>
+</section>
+
+<section class="scr" id="helpscr" hidden>
+ <h2 class="t" style="text-align:left">Precisa de ajuda? <span class="script" style="color:var(--v2);font-size:1.4rem">Você não está sozinha!</span></h2>
+ <div class="help">
+  <div class="hc"><div class="n">180</div><div><b>Central de Atendimento à Mulher</b><span>Orientação e denúncia, gratuito, 24 horas</span></div></div>
+  <div class="hc"><div class="n">190</div><div><b>Polícia Militar</b><span>Emergências e risco imediato</span></div></div>
+  <div class="hc"><div class="n">🏛️</div><div><b>Delegacia da Mulher</b><span>Ou delegacia comum, para registrar ocorrência</span></div></div>
+  <div class="hc"><div class="n">⚖️</div><div><b>Defensoria Pública</b><span>Assistência jurídica gratuita</span></div></div>
+  <div class="hc"><div class="n">💼</div><div><b>Ministério Público do Trabalho</b><span>Denúncias de irregularidades no trabalho</span></div></div>
+  <div class="hc"><div class="n">🤝</div><div><b>Outros serviços de acolhimento</b><span>Rede de atendimento e proteção à mulher</span></div></div>
+ </div>
+ <button class="btn" id="hback">← Voltar</button>
+</section>
+
+<div class="idle" id="idle" hidden><div><h3>Ainda está aí?</h3><button class="btn" id="stay">Continuar</button></div></div>
+</main>
+
+<script>
+const TEMAS=[
+{t:"Assédio e Violência Sexual",d:"Assédio sexual, assédio moral e importunação sexual",cor:"#F8B4D6",ic:"M17 24V13a3 3 0 0 1 6 0v9V10a3 3 0 0 1 6 0v12V12a3 3 0 0 1 6 0v18c0 8-5 12-12 12-5 0-8-2-11-7l-5-9a3 3 0 0 1 5-3l4 5",qs:[
+{q:"Uma funcionária recebe de seu supervisor uma proposta: ele facilitará sua promoção caso ela aceite manter relações íntimas com ele. Essa situação pode configurar qual crime?",o:["Constrangimento ilegal.","Difamação.","Ameaça.","Assédio sexual."],c:3,
+ e:"O art. 216-A do Código Penal prevê o crime de assédio sexual quando alguém constrange outra pessoa buscando vantagem ou favorecimento sexual, aproveitando-se de sua condição de superior hierárquico ou de ascendência inerente ao emprego, cargo ou função.",
+ a:"Procure apoio, registre as mensagens e busque orientação. Não é necessário ter provas reunidas para procurar ajuda.",l:"Código Penal, art. 216-A."},
+{q:"Uma funcionária é constantemente humilhada pelo chefe diante dos colegas, recebe apelidos ofensivos e é ridicularizada repetidamente. Sobre essa situação, assinale a alternativa correta.",o:["É permitido, pois o chefe pode tratar os funcionários como quiser.","Pode caracterizar assédio moral, mas não existe um crime autônomo chamado assédio moral no Código Penal.","É sempre considerado apenas uma brincadeira.","Somente existe violência quando há agressão física."],c:1,
+ e:"O assédio moral envolve condutas abusivas, geralmente repetidas, que humilham, constrangem ou degradam a pessoa no ambiente de trabalho. Não possui um tipo penal geral e específico com esse nome. Conforme as circunstâncias, a conduta pode também configurar outros ilícitos, inclusive o crime do art. 147-B do Código Penal, se preencher seus requisitos.",
+ a:"Registre os episódios, procure apoio e busque orientação nos órgãos competentes.",l:"Código Penal, art. 147-B, quando presentes seus requisitos."},
+{q:"Em um transporte coletivo, uma mulher é submetida, sem consentimento, a um ato de natureza sexual praticado por outra pessoa para satisfazer o desejo sexual dela. Qual crime pode estar configurado?",o:["Importunação sexual.","Difamação.","Calúnia.","Injúria."],c:0,
+ e:"O art. 215-A do Código Penal criminaliza a prática de ato libidinoso contra alguém, sem sua anuência, com o objetivo de satisfazer a própria lascívia ou a de terceiro.",
+ a:"Afaste-se, se possível, procure ajuda e comunique o ocorrido às autoridades. Em situação de emergência, ligue 190.",l:"Código Penal, art. 215-A."},
+{q:"Uma pessoa registra, sem autorização, imagens de outra mulher em situação íntima e privada. Essa conduta pode configurar:",o:["Apenas uma brincadeira.","Somente uma questão trabalhista.","Registro não autorizado da intimidade sexual.","Exercício regular de um direito."],c:2,
+ e:"O art. 216-B do Código Penal criminaliza produzir, fotografar, filmar ou registrar, sem autorização dos participantes, conteúdo com cena de nudez ou ato sexual ou libidinoso de caráter íntimo e privado. Também prevê a montagem de imagens com essa finalidade.",
+ a:"Procure uma autoridade policial e preserve as informações disponíveis, sem se expor a novos riscos.",l:"Código Penal, art. 216-B."},
+{q:"Um gerente condiciona a manutenção de uma funcionária em determinada função à aceitação de propostas de favorecimento sexual. Qual elemento é especialmente importante para analisar a possível configuração do assédio sexual previsto no Código Penal?",o:["A existência de amizade entre os envolvidos.","A diferença de idade entre eles.","O fato de trabalharem na mesma empresa.","O aproveitamento da superioridade hierárquica ou ascendência inerente ao emprego, cargo ou função, com finalidade de obter vantagem ou favorecimento sexual."],c:3,
+ e:"O crime do art. 216-A exige os elementos previstos na lei: constrangimento, finalidade de obter vantagem ou favorecimento sexual e aproveitamento da superioridade hierárquica ou ascendência inerente ao emprego, cargo ou função.",
+ a:"Busque apoio e orientação. A situação pode ser comunicada aos órgãos competentes.",l:"Código Penal, art. 216-A."}]},
+
+{t:"Violência Física e Psicológica",d:"Agressões, ameaças, humilhações e violência psicológica",cor:"#FAC79A",ic:"M24 41C10 32 7 24 7 18a9 9 0 0 1 17-4 9 9 0 0 1 17 4c0 6-3 14-17 23zM25 14l-5 9 6 4-4 9",qs:[
+{q:"Durante uma discussão, uma pessoa agride fisicamente uma mulher, causando-lhe lesões. Qual crime pode estar configurado?",o:["Difamação.","Lesão corporal.","Injúria.","Perseguição."],c:1,
+ e:"O art. 129 do Código Penal trata da ofensa à integridade corporal ou à saúde de outra pessoa. A classificação e as consequências jurídicas dependem das circunstâncias do caso.",
+ a:"Procure atendimento de saúde, se necessário, e comunique a situação às autoridades. Em emergência, ligue 190.",l:"Código Penal, art. 129."},
+{q:"Uma pessoa envia mensagens dizendo que causará um mal injusto e grave a uma mulher, provocando medo. Essa conduta pode configurar:",o:["Calúnia.","Injúria.","Ameaça.","Difamação."],c:2,
+ e:"O art. 147 do Código Penal prevê o crime de ameaça quando alguém promete causar mal injusto e grave a outra pessoa, por palavras, escritos, gestos ou outros meios.",
+ a:"Preserve as mensagens, procure orientação e comunique às autoridades. Se houver risco imediato, ligue 190.",l:"Código Penal, art. 147."},
+{q:"Uma mulher é submetida a humilhações, manipulações, chantagens e isolamento, sofrendo dano emocional que prejudica sua autodeterminação. Essa situação pode configurar:",o:["Violência psicológica contra a mulher.","Apenas uma discussão comum.","Somente difamação.","Exercício regular de autoridade."],c:0,
+ e:"O art. 147-B do Código Penal prevê o crime de violência psicológica contra a mulher quando a conduta causa dano emocional que prejudica seu desenvolvimento ou busca degradar ou controlar suas ações, comportamentos, crenças e decisões, pelos meios descritos na lei.",
+ a:"Procure apoio de pessoas de confiança e orientação na rede de atendimento à mulher.",l:"Código Penal, art. 147-B."},
+{q:"Uma mulher é constantemente impedida de tomar decisões, sofre chantagens e é submetida a humilhações que causam prejuízo à sua saúde psicológica e à sua liberdade de decisão. Qual afirmação está correta?",o:["Não existe violência sem agressão física.","O controle é sempre permitido em um relacionamento.","A violência psicológica somente existe no ambiente de trabalho.","A violência psicológica pode existir mesmo sem agressão física, desde que estejam presentes os requisitos legais."],c:3,
+ e:"A violência psicológica pode ocorrer por ameaça, constrangimento, humilhação, manipulação, isolamento e outras formas previstas no art. 147-B do Código Penal, desde que presentes os requisitos do crime.",
+ a:"Busque orientação e acolhimento. O Ligue 180 pode informar os serviços disponíveis.",l:"Código Penal, art. 147-B."},
+{q:"A Lei Maria da Penha prevê diferentes formas de violência doméstica e familiar contra a mulher. Qual alternativa apresenta uma delas?",o:["Somente violência física.","Violência psicológica.","Somente violência praticada por desconhecidos.","Apenas violência ocorrida em locais públicos."],c:1,
+ e:"O art. 7º da Lei nº 11.340/2006 reconhece cinco formas de violência doméstica e familiar contra a mulher: física, psicológica, sexual, patrimonial e moral.",
+ a:"A mulher pode procurar a rede de atendimento, uma Delegacia da Mulher ou uma delegacia comum. Em emergência, ligue 190.",l:"Lei nº 11.340/2006, art. 7º."}]},
+
+{t:"Crimes Contra a Honra",d:"Calúnia, difamação e injúria",cor:"#D3BFF7",ic:"M8 10h32a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H20l-8 7v-7H8a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2zM24 16v8M24 28v.5",qs:[
+{q:"Uma pessoa acusa publicamente uma mulher de ter cometido um crime, sabendo que a acusação é falsa. Essa conduta pode configurar:",o:["Injúria.","Difamação.","Calúnia.","Ameaça."],c:2,
+ e:"O art. 138 do Código Penal prevê o crime de calúnia, que consiste em atribuir falsamente a alguém a prática de um fato definido como crime.",
+ a:"Preserve as mensagens ou publicações e busque orientação jurídica.",l:"Código Penal, art. 138."},
+{q:"Uma pessoa espalha informações sobre a vida de uma mulher com o objetivo de prejudicar sua reputação perante colegas de trabalho. Qual crime pode estar configurado?",o:["Difamação.","Ameaça.","Lesão corporal.","Perseguição."],c:0,
+ e:"O art. 139 do Código Penal trata da difamação, que consiste em atribuir a alguém fato ofensivo à sua reputação.",
+ a:"Preserve as publicações e identifique, quando possível, as circunstâncias em que ocorreram. Procure orientação jurídica.",l:"Código Penal, art. 139."},
+{q:"Durante uma discussão, uma pessoa dirige palavras ofensivas a uma mulher, atingindo sua dignidade e seu decoro. Essa conduta pode configurar:",o:["Calúnia.","Injúria.","Difamação.","Perseguição."],c:1,
+ e:"O art. 140 do Código Penal define injúria como a ofensa à dignidade ou ao decoro de alguém.",
+ a:"Guarde as informações disponíveis e busque orientação jurídica.",l:"Código Penal, art. 140."},
+{q:"Uma pessoa atribui falsamente a uma mulher a prática de um crime, enquanto outra simplesmente a ofende com palavras que atingem sua dignidade. Quais crimes podem corresponder, respectivamente, a essas situações?",o:["Ameaça e perseguição.","Difamação e calúnia.","Injúria e difamação.","Calúnia e injúria."],c:3,
+ e:"Calúnia é atribuir falsamente a alguém fato definido como crime. Injúria é ofender sua dignidade ou decoro.",
+ a:"",l:"Código Penal, arts. 138 e 140."},
+{q:"Uma pessoa publica comentários ofensivos sobre uma mulher em uma rede social. Sobre essa situação, qual afirmação está correta?",o:["A internet é um espaço em que não existem consequências jurídicas.","Toda crítica publicada na internet é crime.","Dependendo do conteúdo e das circunstâncias, a publicação pode configurar crime contra a honra.","Somente existe crime quando a publicação é feita por um perfil verdadeiro."],c:2,
+ e:"As redes sociais não afastam a aplicação da lei. Dependendo do conteúdo, da intenção e dos demais requisitos legais, uma publicação pode configurar calúnia, difamação ou injúria. Nem toda crítica ou discordância é crime.",
+ a:"Preserve as publicações e procure orientação jurídica.",l:"Código Penal, arts. 138, 139 e 140."}]},
+
+{t:"Perseguição e Violência Digital",d:"Stalking, mensagens insistentes e divulgação de imagens íntimas",cor:"#A9E2DF",ic:"M11 21h26a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V24a3 3 0 0 1 3-3zM17 21v-5a7 7 0 0 1 14 0v5M24 29v7",qs:[
+{q:"Uma pessoa passa a perseguir repetidamente uma mulher, acompanha seus deslocamentos e invade sua privacidade, causando perturbação à sua liberdade. Essa situação pode configurar:",o:["Difamação.","Perseguição.","Injúria.","Calúnia."],c:1,
+ e:"O art. 147-A do Código Penal prevê o crime de perseguição quando alguém persegue outra pessoa reiteradamente, por qualquer meio, ameaçando sua integridade física ou psicológica, restringindo sua locomoção ou invadindo ou perturbando sua liberdade ou privacidade.",
+ a:"Preserve registros das ocorrências, procure apoio e comunique às autoridades.",l:"Código Penal, art. 147-A."},
+{q:"Uma mulher deixa claro que não deseja manter contato com determinada pessoa. Mesmo assim, ela continua sendo perseguida por mensagens e contatos repetidos que invadem sua privacidade. Qual afirmação está correta?",o:["A repetição e as circunstâncias podem caracterizar perseguição, conforme os requisitos legais.","Toda mensagem enviada é automaticamente crime de perseguição.","A pessoa tem direito de insistir indefinidamente.","A perseguição somente existe quando acontece presencialmente."],c:0,
+ e:"O stalking pode ocorrer pela internet, por telefone ou presencialmente. A lei exige perseguição reiterada e as demais circunstâncias previstas no art. 147-A. Uma mensagem isolada não configura automaticamente esse crime.",
+ a:"Preserve os registros, bloqueie contatos se isso for seguro e procure orientação.",l:"Código Penal, art. 147-A."},
+{q:"Uma pessoa compartilha, sem consentimento, fotografias ou vídeos de nudez ou de conteúdo sexual ou libidinoso de uma mulher. Essa conduta pode configurar:",o:["Apenas uma brincadeira.","Injúria.","Divulgação de cena de sexo, nudez ou pornografia sem consentimento.","Exercício regular de um direito."],c:2,
+ e:"O art. 218-C do Código Penal criminaliza, entre outras condutas, oferecer, trocar, disponibilizar, transmitir, vender ou divulgar, sem consentimento da vítima, registro audiovisual com cena de sexo, nudez ou pornografia, nas condições previstas na lei.",
+ a:"Preserve as informações disponíveis, denuncie a publicação à plataforma e procure uma autoridade policial. Não é necessário compartilhar novamente o conteúdo para denunciar.",l:"Código Penal, art. 218-C."},
+{q:"Uma pessoa utiliza a fotografia de uma mulher para criar uma montagem que a inclui falsamente em uma cena de nudez ou ato sexual íntimo. Essa conduta pode configurar:",o:["Apenas uma brincadeira digital.","Registro não autorizado da intimidade sexual, conforme previsão legal sobre montagem.","Somente difamação.","Nenhuma consequência jurídica."],c:1,
+ e:"O parágrafo único do art. 216-B do Código Penal prevê a mesma pena para quem realiza montagem em fotografia, vídeo, áudio ou outro registro com a finalidade de incluir uma pessoa em cena de nudez ou ato sexual ou libidinoso de caráter íntimo.",
+ a:"Preserve as informações sobre a publicação e procure orientação policial e jurídica.",l:"Código Penal, art. 216-B, parágrafo único."},
+{q:"Uma mulher percebe que está sendo perseguida por mensagens, perfis e contatos repetidos na internet. Qual atitude pode ajudá-la?",o:["Apagar todas as informações e não procurar ajuda.","Responder com ameaças para intimidar a outra pessoa.","Compartilhar publicamente todos os dados pessoais do suspeito.","Preservar os registros disponíveis, buscar apoio e comunicar a situação às autoridades."],c:3,
+ e:"A perseguição pode ocorrer em ambientes digitais. Guardar mensagens, datas, perfis e registros pode auxiliar na apuração. A mulher pode procurar ajuda mesmo que ainda não tenha reunido provas.",
+ a:"Procure uma delegacia ou utilize o Ligue 180 para receber orientação sobre a rede de atendimento. Em emergência, ligue 190.",l:"Código Penal, art. 147-A, conforme as circunstâncias."}]}
+];
+
+const $=id=>document.getElementById(id), L="ABCD";
+const svg=p=>`<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="${p}"/></svg>`;
+let st,prev="home";
+function reset(){st={t:0,i:0,ans:TEMAS.map(()=>({})),done:new Set()}}
+reset();
+const SCRS=["home","menu","quiz","answer","end","helpscr"];
+function go(id){SCRS.forEach(s=>{$(s).hidden=s!==id;if(s===id){$(s).style.animation="none";void $(s).offsetWidth;$(s).style.animation=""}});
+  if(id!=="helpscr")prev=id; kick()}
+
+function menu(){
+  $("cards").innerHTML=TEMAS.map((m,k)=>`<button class="card" style="background:${m.cor};animation-delay:${k*80}ms" data-t="${k}">
+   <div class="ic">${svg(m.ic)}</div><div><h3>${k+1}. ${m.t}</h3><p>${m.d}</p><span class="pill">Selecionar</span></div>${st.done.has(k)?'<span class="done">✓ Visto</span>':''}</button>`).join("");
+  $("cards").querySelectorAll(".card").forEach(b=>b.onclick=()=>{st.t=+b.dataset.t;st.i=0;st.ans[st.t]={};showQ()});
+  go("menu");
+}
+function bar(){const m=TEMAS[st.t];
+  $("qtit").textContent=(st.t+1)+". "+m.t; $("atit").textContent=(st.t+1)+". "+m.t;
+  const c=`${st.i+1} de ${m.qs.length}`; $("qcount").textContent=c; $("acount").textContent=c;
+  $("dots").innerHTML=m.qs.map((_,k)=>`<i class="${k<=st.i?"on":""}"></i>`).join("")}
+function showQ(){
+  const m=TEMAS[st.t],q=m.qs[st.i]; bar();
+  $("bub").style.background=m.cor; $("bub").innerHTML=svg(m.ic);
+  $("qtxt").textContent=q.q;
+  $("opts").innerHTML=q.o.map((t,k)=>`<button class="opt" style="animation-delay:${120+k*80}ms" data-k="${k}"><b>${L[k]}</b><span>${t}</span></button>`).join("");
+  $("opts").querySelectorAll(".opt").forEach(b=>b.onclick=()=>{st.ans[st.t][st.i]=+b.dataset.k;showA()});
+  go("quiz");
+}
+function showA(){
+  const m=TEMAS[st.t],q=m.qs[st.i],k=st.ans[st.t][st.i],ok=k===q.c,last=st.i===m.qs.length-1; bar();
+  $("abody").innerHTML=`<div class="fbh"><div class="badge" style="background:${ok?"var(--ok)":"var(--v2)"}">${ok?"✓":"i"}</div><h2 class="script">${ok?"Isso mesmo!":"Vamos entender melhor"}</h2></div>
+  <div class="ans">Resposta: ${L[q.c]}) ${q.o[q.c]}</div>
+  <div class="agrid"><div>
+   <div class="blk b1"><h4>⚖️ Entenda</h4><br>${q.e}<div class="lei">${q.l}</div></div>
+   ${q.a?`<div class="blk b2"><h4>📣 Como agir?</h4><br>${q.a}</div>`:""}
+   <div class="blk b3"><h4>📞 Onde buscar ajuda?</h4><br>Ligue 180 (Central de Atendimento à Mulher). Em emergência, 190. Procure a Delegacia da Mulher ou a Defensoria Pública.</div>
+  </div><div class="side"><p>Informação também é proteção!</p></div></div>
+  <div class="foot">${st.i>0?'<button class="btn out sm" id="bprev">← Pergunta anterior</button>':""}
+   <button class="btn sm" id="bnext">${last?"Concluir tema":"Próxima pergunta →"}</button>
+   <button class="btn out sm" id="bmenu">Mudar de tema</button></div>`;
+  $("bnext").onclick=()=>{ if(last){st.done.add(st.t);go("end")} else {st.i++; st.ans[st.t][st.i]!==undefined?showA():showQ()} };
+  $("bmenu").onclick=menu;
+  if($("bprev"))$("bprev").onclick=()=>{st.i--;showA()};
+  go("answer");
+}
+
+$("go").onclick=()=>{reset();menu()};
+$("tohome").onclick=()=>go("home");
+$("qback").onclick=menu; $("e1").onclick=menu;
+document.querySelectorAll("[data-help]").forEach(b=>b.onclick=()=>go("helpscr"));
+$("hback").onclick=()=>go(prev);
+
+/* volta sozinho ao início quando ninguém está usando (tablet em exposição) */
+let t1,t2;
+function kick(){clearTimeout(t1);clearTimeout(t2);$("idle").hidden=true;
+  if(!$("home").hidden)return;
+  t1=setTimeout(()=>{$("idle").hidden=false;t2=setTimeout(()=>{$("idle").hidden=true;reset();go("home")},15000)},90000)}
+["pointerdown","keydown","touchstart"].forEach(e=>document.addEventListener(e,()=>{if($("home").hidden)kick()},{passive:true}));
+$("stay").onclick=kick;
+</script>
+</body>
+</html>
